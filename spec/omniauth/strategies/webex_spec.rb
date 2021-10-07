@@ -29,5 +29,26 @@ RSpec.describe OmniAuth::Strategies::Webex do
         expect(strategy.options.client_options.token_url).to eq "https://webexapis.com/v1/access_token"
       end
     end
+
+    describe "#callback_url" do
+      let(:env) { {} }
+      let(:request) do
+        double("Request",
+               scheme: "https",
+               url: "https://somewhere.com",
+               script_name: "",
+               query_string: "?foo=bar",
+               env: env)
+      end
+
+      before do
+        allow(strategy).to receive(:request).and_return(request)
+        strategy.instance_variable_set(:@env, env)
+      end
+
+      it "does not contain additional parameters" do
+        expect(strategy.callback_url).to eq "https://somewhere.com/auth/webex/callback"
+      end
+    end
   end
 end
