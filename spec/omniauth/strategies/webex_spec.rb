@@ -1,6 +1,15 @@
 require "spec_helper"
 
 RSpec.describe OmniAuth::Strategies::Webex do
+  let(:raw_info) do
+    {
+      "id" => "12345",
+      "emails" => ["jimmy@zeppelin.com"],
+      "nickName" => "jimmy",
+      "displayName" => "Jimmy Page"
+    }
+  end
+
   subject(:strategy) do
     OmniAuth::Strategies::Webex.new("appid", "secret")
   end
@@ -48,6 +57,22 @@ RSpec.describe OmniAuth::Strategies::Webex do
 
       it "does not contain additional parameters" do
         expect(strategy.callback_url).to eq "https://somewhere.com/auth/webex/callback"
+      end
+    end
+
+    describe "#info" do
+      before { allow(strategy).to receive(:raw_info).and_return raw_info }
+
+      it "returns the raw info for the user" do
+        expect(strategy.info).to eq raw_info
+      end
+    end
+
+    describe "#uid" do
+      before { allow(strategy).to receive(:raw_info).and_return raw_info }
+
+      it "returns the id for the user" do
+        expect(strategy.uid).to eq "12345"
       end
     end
   end
