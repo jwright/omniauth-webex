@@ -22,4 +22,6 @@ Gem::Specification.new do |s|
   s.required_ruby_version = Gem::Requirement.new(">= 2.2")
 
   s.add_dependency "omniauth-oauth2", "~> 1.7"
+
+  s.add_development_dependency "rake", "> 10.0.0"
 end

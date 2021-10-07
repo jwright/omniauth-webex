@@ -102,6 +102,14 @@ Here is an example of the data that will be available in `request.env["omniauth.
 }
 ```
 
+## RUNNING TESTS
+
+This project is covered by unit tests. They can be run with the following command.
+
+```
+bundle exec rake spec
+```
+
 ## CONTRIBUTING
 
 1. Fork the repository `gh repo fork https://github.com/jwright/omniauth-webex`
