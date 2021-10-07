@@ -110,6 +110,12 @@ This project is covered by unit tests. They can be run with the following comman
 bundle exec rake spec
 ```
 
+## RELEASING A NEW GEM
+
+1. Bump [VERSION] in `lib/omniauth/webex/version.rb`
+1. Commit changes and push to GitHub
+1. Run `bundle exec rake release`
+
 ## CONTRIBUTING
 
 1. Fork the repository `gh repo fork https://github.com/jwright/omniauth-webex`
