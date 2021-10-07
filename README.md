@@ -19,3 +19,5 @@ The [Webex](https://webex.com) strategy for [OmniAuth](https://github.com/omniau
 1. Create a pull request `gh pr create --head my-fork:my-awesome-feature`
 
 ## LICENSE
+
+This project is licensed under the [MIT License](LICENSE.md).
